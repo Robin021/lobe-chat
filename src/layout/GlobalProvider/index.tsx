@@ -1,6 +1,7 @@
 import { ReactNode, Suspense } from 'react';
 
 import { LobeAnalyticsProviderWrapper } from '@/components/Analytics/LobeAnalyticsProviderWrapper';
+import { BRANDING_FONT_FAMILY, BRANDING_FONT_URL } from '@/const/branding';
 import { getServerFeatureFlagsValue } from '@/config/featureFlags';
 import { appEnv } from '@/envs/app';
 import DevPanel from '@/features/DevPanel';
@@ -40,12 +41,14 @@ const GlobalLayout = async ({
   // get default feature flags to use with ssr
   const serverFeatureFlags = getServerFeatureFlagsValue();
   const serverConfig = await getServerGlobalConfig();
+  const customFontFamily = appEnv.CUSTOM_FONT_FAMILY || BRANDING_FONT_FAMILY;
+  const customFontURL = appEnv.CUSTOM_FONT_URL || BRANDING_FONT_URL;
   return (
     <StyleRegistry>
       <Locale antdLocale={antdLocale} defaultLang={userLocale}>
         <AppTheme
-          customFontFamily={appEnv.CUSTOM_FONT_FAMILY}
-          customFontURL={appEnv.CUSTOM_FONT_URL}
+          customFontFamily={customFontFamily}
+          customFontURL={customFontURL}
           defaultAppearance={appearance}
           defaultNeutralColor={neutralColor as any}
           defaultPrimaryColor={primaryColor as any}

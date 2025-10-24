@@ -1,0 +1,27 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="porschehub-gradient" x1="64" y1="64" x2="448" y2="448" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1F1F1F" />
+      <stop offset="50%" stop-color="#2C2C2C" />
+      <stop offset="100%" stop-color="#050505" />
+    </linearGradient>
+    <linearGradient id="porschehub-accent" x1="128" y1="128" x2="384" y2="384" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FF0026" />
+      <stop offset="100%" stop-color="#FFA200" />
+    </linearGradient>
+    <filter id="porschehub-shadow" x="0" y="0" width="512" height="512" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="12" stdDeviation="20" flood-opacity="0.25" />
+    </filter>
+  </defs>
+  <g filter="url(#porschehub-shadow)">
+    <rect x="64" y="64" width="384" height="384" rx="120" fill="url(#porschehub-gradient)" />
+    <path
+      d="M204 128c-11.046 0-20 8.954-20 20v216c0 11.046 8.954 20 20 20h52c98.601 0 172-59.317 172-148 0-87.928-73.399-148-172-148h-52Zm52 64h20c59.369 0 100 33.445 100 84 0 51.206-40.631 84-100 84h-20V192Z"
+      fill="white"
+    />
+    <path
+      d="M188 360c0 28.719 19.083 48 48 48 28.917 0 60.917-14.812 84-36 4.714-4.312 5.012-11.536 0.668-16.226-4.344-4.69-11.497-5.034-16.343-0.79-18.631 16.21-41.421 26.016-58.325 26.016-16.904 0-22-8.063-22-21v-36h-36v36Z"
+      fill="url(#porschehub-accent)"
+    />
+  </g>
+</svg>
