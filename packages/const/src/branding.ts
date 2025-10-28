@@ -4,10 +4,12 @@
 
 export const LOBE_CHAT_CLOUD = 'LobeHub Cloud';
 
-export const BRANDING_NAME = 'LobeHub';
-export const BRANDING_LOGO_URL = '';
+// Custom branding: Porsche
+export const BRANDING_NAME = 'Porsche';
+// Use custom SVG favicon for branding
+export const BRANDING_LOGO_URL = '/brand/favicon-source.svg';
 
-export const ORG_NAME = 'LobeHub';
+export const ORG_NAME = 'Porsche';
 
 export const BRANDING_URL = {
   help: undefined,

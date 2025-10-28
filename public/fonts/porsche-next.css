@@ -1,0 +1,13 @@
+/* Local Porsche Next font mapping
+   Ensure CUSTOM_FONT_FAMILY includes 'Porsche Next'
+   and CUSTOM_FONT_URL points to '/fonts/porsche-next.css' in .env
+*/
+
+@font-face {
+  font-family: 'Porsche Next';
+  src: url('/font/porsche-next.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+

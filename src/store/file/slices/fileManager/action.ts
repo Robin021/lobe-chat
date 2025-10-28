@@ -13,7 +13,7 @@ import {
 } from '@/store/file/reducers/uploadFileList';
 import { FileListItem, QueryFileListParams } from '@/types/files';
 import { isChunkingUnsupported } from '@/utils/isChunkingUnsupported';
-import { unzipFile } from '@/utils/unzipFile';
+// zip 解压功能暂时移除以规避 fflate 解析问题，直接按普通文件处理
 
 import { FileStore } from '../../store';
 import { fileManagerSelectors } from './selectors';
@@ -94,18 +94,8 @@ export const createFileManageSlice: StateCreator<
     // 0. Process ZIP files and extract their contents
     const filesToUpload: File[] = [];
     for (const file of rawFiles) {
-      if (file.type === 'application/zip' || file.name.endsWith('.zip')) {
-        try {
-          const extractedFiles = await unzipFile(file);
-          filesToUpload.push(...extractedFiles);
-        } catch (error) {
-          console.error('Failed to extract ZIP file:', error);
-          // If extraction fails, treat it as a regular file
-          filesToUpload.push(file);
-        }
-      } else {
-        filesToUpload.push(file);
-      }
+      // 先按普通文件处理 ZIP，避免构建期模块解析报错
+      filesToUpload.push(file);
     }
 
     // 1. skip file in blacklist

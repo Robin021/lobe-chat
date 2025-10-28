@@ -33,6 +33,7 @@ export const getAppConfig = () => {
   return createEnv({
     client: {
       NEXT_PUBLIC_ENABLE_SENTRY: z.boolean(),
+      NEXT_PUBLIC_MODEL_SWITCH_ICON_URL: z.string().optional(),
     },
     server: {
       ACCESS_CODES: z.any(z.string()).optional(),
@@ -60,6 +61,7 @@ export const getAppConfig = () => {
     runtimeEnv: {
       // Sentry
       NEXT_PUBLIC_ENABLE_SENTRY: !!process.env.NEXT_PUBLIC_SENTRY_DSN,
+      NEXT_PUBLIC_MODEL_SWITCH_ICON_URL: process.env.NEXT_PUBLIC_MODEL_SWITCH_ICON_URL,
 
       ACCESS_CODES: ACCESS_CODES as any,
 

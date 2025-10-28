@@ -1,4 +1,5 @@
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import Script from 'next/script';
 import { ThemeAppearance } from 'antd-style';
 import { ResolvingViewport } from 'next';
 import { NuqsAdapter } from 'nuqs/adapters/next/app';
@@ -34,8 +35,11 @@ const RootLayout = async ({ children, params, modal }: RootLayoutProps) => {
     <html dir={direction} lang={locale}>
       <head>
         {process.env.DEBUG_REACT_SCAN === '1' && (
-          // eslint-disable-next-line @next/next/no-sync-scripts
-          <script crossOrigin="anonymous" src="https://unpkg.com/react-scan/dist/auto.global.js" />
+          <Script
+            crossOrigin="anonymous"
+            src="https://unpkg.com/react-scan/dist/auto.global.js"
+            strategy="afterInteractive"
+          />
         )}
       </head>
       <body>

@@ -69,17 +69,24 @@ const Divider: IconType = forwardRef(({ size = '1em', style, ...rest }, ref) => 
 const CustomLogo = memo<LobeChatProps>(({ extra, size = 32, className, style, type, ...rest }) => {
   const theme = useTheme();
   const { styles } = useStyles();
+  const hasImageLogo = !!BRANDING_LOGO_URL;
   let logoComponent: ReactNode;
 
   switch (type) {
     case '3d':
     case 'flat': {
-      logoComponent = <CustomImageLogo size={size} style={style} {...rest} />;
+      logoComponent = hasImageLogo ? (
+        <CustomImageLogo size={size} style={style} {...rest} />
+      ) : (
+        <CustomTextLogo size={size} style={style} {...rest} />
+      );
       break;
     }
     case 'mono': {
-      logoComponent = (
+      logoComponent = hasImageLogo ? (
         <CustomImageLogo size={size} style={{ filter: 'grayscale(100%)', ...style }} {...rest} />
+      ) : (
+        <CustomTextLogo size={size} style={style} {...rest} />
       );
       break;
     }
@@ -88,11 +95,13 @@ const CustomLogo = memo<LobeChatProps>(({ extra, size = 32, className, style, ty
       break;
     }
     case 'combine': {
-      logoComponent = (
+      logoComponent = hasImageLogo ? (
         <>
           <CustomImageLogo size={size} />
           <CustomTextLogo size={size} style={{ marginLeft: Math.round(size / 4) }} />
         </>
+      ) : (
+        <CustomTextLogo size={size} style={style} {...rest} />
       );
 
       if (!extra)
@@ -105,7 +114,11 @@ const CustomLogo = memo<LobeChatProps>(({ extra, size = 32, className, style, ty
       break;
     }
     default: {
-      logoComponent = <CustomImageLogo size={size} style={style} {...rest} />;
+      logoComponent = hasImageLogo ? (
+        <CustomImageLogo size={size} style={style} {...rest} />
+      ) : (
+        <CustomTextLogo size={size} style={style} {...rest} />
+      );
       break;
     }
   }

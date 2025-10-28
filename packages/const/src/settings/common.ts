@@ -5,5 +5,7 @@ export const DEFAULT_COMMON_SETTINGS: UserGeneralConfig = {
   fontSize: 14,
   highlighterTheme: 'lobe-theme',
   mermaidTheme: 'lobe-theme',
+  // Set default primary color to Porsche red
+  primaryColor: 'red',
   transitionMode: 'fadeIn',
 };
